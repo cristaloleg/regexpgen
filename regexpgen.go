@@ -11,6 +11,12 @@ import (
 
 var defaultMax = 32
 
+func String(re *syntax.Regexp) (string, error) {
+	buf := &bytes.Buffer{}
+	err := Generate(re, buf, rand.New(rand.NewSource(time.Now().Unix())))
+	return buf.String(), err
+}
+
 func GenerateString(s string, w *bytes.Buffer, rnd *rand.Rand) error {
 	re, err := syntax.Parse(s, syntax.Perl)
 	if err != nil {

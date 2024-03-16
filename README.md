@@ -21,7 +21,7 @@ go get github.com/cristaloleg/regexpgen
 ```go
 s := `foo(-(bar|baz)){2,4}`
 var buf bytes.Buffer
-if err := GenerateString(s, &buf, nil); err != nil {
+if err := regexpgen.GenerateString(s, &buf, nil); err != nil {
     t.Fatal(err)
 }
 println(buf.String())
